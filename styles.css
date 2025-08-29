@@ -60,7 +60,7 @@ body {
 .nav-logo span {
     font-size: 1.5rem;
     font-weight: 700;
-    color: #2563eb;
+    color: #000000;
 }
 
 .nav-menu {
@@ -78,7 +78,7 @@ body {
 }
 
 .nav-link:hover {
-    color: #2563eb;
+    color: #000000;
 }
 
 .nav-link::after {
@@ -88,7 +88,7 @@ body {
     height: 2px;
     bottom: -5px;
     left: 0;
-    background-color: #2563eb;
+    background-color: #000000;
     transition: width 0.3s ease;
 }
 
@@ -115,9 +115,10 @@ body {
     min-height: 100vh;
     display: flex;
     align-items: center;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    color: white;
+    background: #ffffff;
+    color: #000000;
     text-align: center;
+    border-bottom: 1px solid #e5e5e5;
 }
 
 .hero-content {
@@ -174,26 +175,27 @@ body {
 }
 
 .btn-primary {
-    background: #ffffff;
-    color: #2563eb;
+    background: #000000;
+    color: #ffffff;
+    border-color: #000000;
 }
 
 .btn-primary:hover {
-    background: transparent;
-    color: #ffffff;
-    border-color: #ffffff;
+    background: #ffffff;
+    color: #000000;
+    border-color: #000000;
     transform: translateY(-2px);
 }
 
 .btn-secondary {
     background: transparent;
-    color: #ffffff;
-    border-color: #ffffff;
+    color: #000000;
+    border-color: #000000;
 }
 
 .btn-secondary:hover {
-    background: #ffffff;
-    color: #2563eb;
+    background: #000000;
+    color: #ffffff;
     transform: translateY(-2px);
 }
 
@@ -237,7 +239,7 @@ body {
 }
 
 .project-link {
-    color: #2563eb;
+    color: #000000;
     text-decoration: none;
     font-size: 0.875rem;
     font-weight: 500;
@@ -375,7 +377,7 @@ body {
 
 .repo-name {
     font-weight: 600;
-    color: #2563eb;
+    color: #000000;
     margin: 0;
 }
 
@@ -433,7 +435,7 @@ body {
 }
 
 .skill-item {
-    background: #2563eb;
+    background: #000000;
     color: white;
     padding: 0.5rem 1rem;
     border-radius: 25px;
@@ -443,7 +445,7 @@ body {
 }
 
 .skill-item:hover {
-    background: #1d4ed8;
+    background: #333333;
     transform: translateY(-2px);
 }
 
@@ -476,7 +478,7 @@ body {
 }
 
 .education-details {
-    color: #2563eb;
+    color: #666666;
     font-weight: 500;
     margin-bottom: 1rem;
 }
@@ -521,7 +523,7 @@ body {
 }
 
 .contact-item a {
-    color: #2563eb;
+    color: #000000;
     text-decoration: none;
     font-weight: 500;
 }

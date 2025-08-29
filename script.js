@@ -381,7 +381,7 @@ style.textContent = `
     }
     
     .nav-link.active {
-        color: #2563eb;
+        color: #000000;
     }
     
     .nav-link.active::after {
