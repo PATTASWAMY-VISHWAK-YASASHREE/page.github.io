@@ -1,10 +1,253 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>Welcome</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vishwak Pattaswamy | Software Developer</title>
+    <meta name="description" content="Software Developer specializing in modern web technologies and solutions">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-<h1>Hello, World!</h1>
-<p>Welcome to my GitHub Pages site.</p>
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <span>VP</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#home" class="nav-link">Home</a></li>
+                <li><a href="#projects" class="nav-link">Projects</a></li>
+                <li><a href="#github" class="nav-link">GitHub</a></li>
+                <li><a href="#skills" class="nav-link">Skills</a></li>
+                <li><a href="#education" class="nav-link">Education</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+            <div class="nav-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">
+                    <span class="hero-name">Vishwak Pattaswamy</span>
+                    <span class="hero-role">Software Developer</span>
+                </h1>
+                <p class="hero-description">
+                    Building scalable web applications and digital solutions with modern technologies. 
+                    Focused on clean code, user experience, and delivering results.
+                </p>
+                <div class="hero-actions">
+                    <a href="#projects" class="btn btn-primary">View Projects</a>
+                    <a href="#contact" class="btn btn-secondary">Get In Touch</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="section">
+        <div class="container">
+            <h2 class="section-title">Projects</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3>Project Name</h3>
+                        <div class="project-links">
+                            <a href="#" class="project-link" target="_blank">Live Demo</a>
+                            <a href="#" class="project-link" target="_blank">GitHub</a>
+                        </div>
+                    </div>
+                    <p class="project-description">
+                        Brief description of the project and its key features. Technologies used and problem solved.
+                    </p>
+                    <div class="project-tech">
+                        <span class="tech-tag">React</span>
+                        <span class="tech-tag">Node.js</span>
+                        <span class="tech-tag">MongoDB</span>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3>Another Project</h3>
+                        <div class="project-links">
+                            <a href="#" class="project-link" target="_blank">Live Demo</a>
+                            <a href="#" class="project-link" target="_blank">GitHub</a>
+                        </div>
+                    </div>
+                    <p class="project-description">
+                        Description of another project showcasing different skills and technologies.
+                    </p>
+                    <div class="project-tech">
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">Django</span>
+                        <span class="tech-tag">PostgreSQL</span>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3>Third Project</h3>
+                        <div class="project-links">
+                            <a href="#" class="project-link" target="_blank">Live Demo</a>
+                            <a href="#" class="project-link" target="_blank">GitHub</a>
+                        </div>
+                    </div>
+                    <p class="project-description">
+                        Third project demonstrating additional technical capabilities and problem-solving skills.
+                    </p>
+                    <div class="project-tech">
+                        <span class="tech-tag">JavaScript</span>
+                        <span class="tech-tag">Vue.js</span>
+                        <span class="tech-tag">Firebase</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- GitHub Section -->
+    <section id="github" class="section github-section">
+        <div class="container">
+            <h2 class="section-title">GitHub Profile</h2>
+            <div class="github-container">
+                <div class="github-profile" id="github-profile">
+                    <div class="github-loading">Loading GitHub profile...</div>
+                </div>
+                <div class="github-repos" id="github-repos">
+                    <h3>Pinned Repositories</h3>
+                    <div class="repos-grid" id="repos-grid">
+                        <div class="github-loading">Loading repositories...</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="section">
+        <div class="container">
+            <h2 class="section-title">Skills & Technologies</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3>Frontend</h3>
+                    <div class="skills-list">
+                        <span class="skill-item">JavaScript</span>
+                        <span class="skill-item">TypeScript</span>
+                        <span class="skill-item">React</span>
+                        <span class="skill-item">Vue.js</span>
+                        <span class="skill-item">HTML5</span>
+                        <span class="skill-item">CSS3</span>
+                        <span class="skill-item">Sass</span>
+                    </div>
+                </div>
+                
+                <div class="skill-category">
+                    <h3>Backend</h3>
+                    <div class="skills-list">
+                        <span class="skill-item">Node.js</span>
+                        <span class="skill-item">Python</span>
+                        <span class="skill-item">Django</span>
+                        <span class="skill-item">Express.js</span>
+                        <span class="skill-item">REST APIs</span>
+                        <span class="skill-item">GraphQL</span>
+                    </div>
+                </div>
+                
+                <div class="skill-category">
+                    <h3>Database & Tools</h3>
+                    <div class="skills-list">
+                        <span class="skill-item">MongoDB</span>
+                        <span class="skill-item">PostgreSQL</span>
+                        <span class="skill-item">MySQL</span>
+                        <span class="skill-item">Git</span>
+                        <span class="skill-item">Docker</span>
+                        <span class="skill-item">AWS</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education" class="section">
+        <div class="container">
+            <h2 class="section-title">Education & Certifications</h2>
+            <div class="education-grid">
+                <div class="education-card">
+                    <h3>Degree/University Name</h3>
+                    <p class="education-details">Field of Study • Year</p>
+                    <p class="education-description">
+                        Relevant coursework and achievements during studies.
+                    </p>
+                </div>
+                
+                <div class="education-card">
+                    <h3>Certification Name</h3>
+                    <p class="education-details">Issuing Organization • Year</p>
+                    <p class="education-description">
+                        Description of certification and skills validated.
+                    </p>
+                </div>
+                
+                <div class="education-card">
+                    <h3>Additional Certification</h3>
+                    <p class="education-details">Issuing Organization • Year</p>
+                    <p class="education-description">
+                        Another relevant certification or course completion.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section">
+        <div class="container">
+            <h2 class="section-title">Contact</h2>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <h3>Email</h3>
+                        <a href="mailto:pvishwak18@gmail.com">pvishwak18@gmail.com</a>
+                    </div>
+                    <div class="contact-item">
+                        <h3>Phone</h3>
+                        <a href="tel:+919885541788">+91 9885541788</a>
+                    </div>
+                    <div class="contact-item">
+                        <h3>LinkedIn</h3>
+                        <a href="https://pattaswamy-vishwak-yasashree.github.io" target="_blank">
+                            pattaswamy-vishwak-yasashree.github.io
+                        </a>
+                    </div>
+                    <div class="contact-item">
+                        <h3>GitHub</h3>
+                        <a href="https://github.com/PATTASWAMY-VISHWAK-YASASHREE" target="_blank">
+                            PATTASWAMY-VISHWAK-YASASHREE
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 Vishwak Pattaswamy. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
