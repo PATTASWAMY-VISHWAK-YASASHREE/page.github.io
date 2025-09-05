@@ -419,4 +419,178 @@ function loadGitHubDataOnScroll() {
 // Initialize lazy loading
 document.addEventListener('DOMContentLoaded', function() {
     loadGitHubDataOnScroll();
+    initializeFoodClassifier();
 });
+
+// Food Classifier Functionality
+function initializeFoodClassifier() {
+    const uploadBtn = document.getElementById('upload-btn');
+    const cameraBtn = document.getElementById('camera-btn');
+    const fileInput = document.getElementById('food-image-input');
+    const uploadArea = document.getElementById('upload-area');
+    const imagePreview = document.getElementById('image-preview');
+    const previewImg = document.getElementById('preview-img');
+    const analyzeBtn = document.getElementById('analyze-btn');
+    const demoResults = document.getElementById('demo-results');
+    
+    if (!uploadBtn || !fileInput || !uploadArea) return;
+    
+    // File upload handling
+    uploadBtn.addEventListener('click', () => fileInput.click());
+    
+    fileInput.addEventListener('change', handleFileSelect);
+    
+    // Drag and drop handling
+    uploadArea.addEventListener('dragover', handleDragOver);
+    uploadArea.addEventListener('drop', handleDrop);
+    uploadArea.addEventListener('dragleave', handleDragLeave);
+    
+    // Camera functionality (simulated)
+    if (cameraBtn) {
+        cameraBtn.addEventListener('click', handleCameraCapture);
+    }
+    
+    // Analyze button
+    if (analyzeBtn) {
+        analyzeBtn.addEventListener('click', analyzeFoodImage);
+    }
+    
+    function handleFileSelect(e) {
+        const file = e.target.files[0];
+        if (file && file.type.startsWith('image/')) {
+            displayImagePreview(file);
+        }
+    }
+    
+    function handleDragOver(e) {
+        e.preventDefault();
+        uploadArea.classList.add('dragover');
+    }
+    
+    function handleDrop(e) {
+        e.preventDefault();
+        uploadArea.classList.remove('dragover');
+        
+        const files = e.dataTransfer.files;
+        if (files.length > 0 && files[0].type.startsWith('image/')) {
+            displayImagePreview(files[0]);
+        }
+    }
+    
+    function handleDragLeave(e) {
+        e.preventDefault();
+        uploadArea.classList.remove('dragover');
+    }
+    
+    function handleCameraCapture() {
+        // Simulate camera capture with a sample food image
+        const sampleImageUrl = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgZmlsbD0iI2Y5ZjlmOSIvPjx0ZXh0IHg9IjEwMCIgeT0iMTAwIiBmb250LWZhbWlseT0iQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTQiIGZpbGw9IiM2NjYiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGR5PSIuM2VtIj5TYW1wbGUgRm9vZCBJbWFnZSDwn42VPC90ZXh0Pjwvc3ZnPg==';
+        
+        previewImg.src = sampleImageUrl;
+        previewImg.alt = 'Sample food image';
+        uploadArea.style.display = 'none';
+        imagePreview.style.display = 'block';
+        demoResults.style.display = 'none';
+    }
+    
+    function displayImagePreview(file) {
+        const reader = new FileReader();
+        reader.onload = function(e) {
+            previewImg.src = e.target.result;
+            previewImg.alt = 'Selected food image';
+            uploadArea.style.display = 'none';
+            imagePreview.style.display = 'block';
+            demoResults.style.display = 'none';
+        };
+        reader.readAsDataURL(file);
+    }
+    
+    function analyzeFoodImage() {
+        // Simulate food analysis
+        analyzeBtn.textContent = 'Analyzing...';
+        analyzeBtn.classList.add('analyzing');
+        analyzeBtn.disabled = true;
+        
+        setTimeout(() => {
+            showAnalysisResults();
+            analyzeBtn.textContent = 'Analyze Food';
+            analyzeBtn.classList.remove('analyzing');
+            analyzeBtn.disabled = false;
+        }, 2500);
+    }
+    
+    function showAnalysisResults() {
+        // Simulate analysis results
+        const foodItems = ['Apple', 'Banana', 'Orange'];
+        const nutrition = {
+            calories: '150',
+            protein: '2g',
+            carbs: '40g',
+            fat: '0.5g'
+        };
+        const healthStatus = 'healthy';
+        
+        // Display food items
+        const foodItemsContainer = document.getElementById('food-items');
+        if (foodItemsContainer) {
+            foodItemsContainer.innerHTML = foodItems.map(item => 
+                `<span class="food-item">${item}</span>`
+            ).join('');
+        }
+        
+        // Display nutrition values
+        document.getElementById('calories-value').textContent = nutrition.calories;
+        document.getElementById('protein-value').textContent = nutrition.protein;
+        document.getElementById('carbs-value').textContent = nutrition.carbs;
+        document.getElementById('fat-value').textContent = nutrition.fat;
+        
+        // Display health assessment
+        const healthBadge = document.getElementById('health-badge');
+        const healthStatusEl = document.getElementById('health-status');
+        if (healthBadge && healthStatusEl) {
+            healthBadge.className = `health-badge ${healthStatus}`;
+            healthStatusEl.textContent = getHealthStatusText(healthStatus);
+        }
+        
+        // Show results
+        demoResults.style.display = 'block';
+        demoResults.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }
+    
+    function getHealthStatusText(status) {
+        switch (status) {
+            case 'healthy':
+                return '✅ Healthy Choice';
+            case 'moderate':
+                return '⚠️ Moderate';
+            case 'unhealthy':
+                return '❌ Less Healthy';
+            default:
+                return 'Analyzing...';
+        }
+    }
+}
+
+// Sample food database for demo
+const sampleFoodDatabase = {
+    'apple': {
+        nutrition: { calories: '52', protein: '0.3g', carbs: '14g', fat: '0.2g' },
+        health: 'healthy'
+    },
+    'banana': {
+        nutrition: { calories: '89', protein: '1.1g', carbs: '23g', fat: '0.3g' },
+        health: 'healthy'
+    },
+    'pizza': {
+        nutrition: { calories: '285', protein: '12g', carbs: '36g', fat: '10g' },
+        health: 'moderate'
+    },
+    'burger': {
+        nutrition: { calories: '540', protein: '25g', carbs: '40g', fat: '31g' },
+        health: 'unhealthy'
+    },
+    'salad': {
+        nutrition: { calories: '65', protein: '3g', carbs: '12g', fat: '1g' },
+        health: 'healthy'
+    }
+};
