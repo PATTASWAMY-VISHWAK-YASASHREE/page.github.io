@@ -1,5 +1,9 @@
 // Mobile Navigation
 document.addEventListener('DOMContentLoaded', function() {
+    particlesJS.load('particles-js', 'particles.json', function() {
+      console.log('callback - particles.js config loaded');
+    });
+
     const navToggle = document.querySelector('.nav-toggle');
     const navMenu = document.querySelector('.nav-menu');
     const navLinks = document.querySelectorAll('.nav-link');
