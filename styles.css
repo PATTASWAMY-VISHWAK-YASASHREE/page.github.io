@@ -25,6 +25,7 @@ body {
 
 .section {
     padding: 5rem 0;
+    background-color: #ffffff;
 }
 
 .section-title {
@@ -111,12 +112,12 @@ body {
 }
 
 #particles-js {
-  position: absolute;
+  position: fixed;
   width: 100%;
   height: 100%;
   top: 0;
   left: 0;
-  z-index: 0;
+  z-index: -1;
 }
 
 /* Hero Section */
@@ -215,8 +216,22 @@ body {
 /* Projects Section */
 .projects-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    grid-template-columns: 1fr;
     gap: 2rem;
+    perspective: 1000px;
+    transform-style: preserve-3d;
+}
+
+.stack-cards {
+    position: relative;
+    gap: 2rem;
+}
+
+.stack-cards__item {
+    position: sticky;
+    top: 20px;
+    transform-origin: center top;
+    margin-bottom: 2rem;
 }
 
 .project-card {

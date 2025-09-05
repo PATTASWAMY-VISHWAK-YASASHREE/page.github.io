@@ -424,3 +424,84 @@ function loadGitHubDataOnScroll() {
 document.addEventListener('DOMContentLoaded', function() {
     loadGitHubDataOnScroll();
 });
+
+// Stacking cards effect
+var StackCards = function(element) {
+  this.element = element;
+  this.items = this.element.getElementsByClassName('js-stack-cards__item');
+  this.scrollingListener = false;
+  this.scrolling = false;
+  initStackCardsEffect(this);
+};
+
+function initStackCardsEffect(element) {
+  // use Intersection Observer to trigger animation
+  var observer = new IntersectionObserver(stackCardsCallback.bind(element));
+  observer.observe(element.element);
+};
+
+function stackCardsCallback(entries) {
+  // Intersection Observer callback
+  if (entries[0].isIntersecting) {
+    // cards inside viewport - add scroll listener
+    if (this.scrollingListener) return; // listener for scroll event already added
+    stackCardsInitEvent(this);
+  } else {
+    // cards not inside viewport - remove scroll listener
+    if (!this.scrollingListener) return; // listener for scroll event already removed
+    window.removeEventListener('scroll', this.scrollingListener);
+    this.scrollingListener = false;
+  }
+};
+
+function stackCardsInitEvent(element) {
+  element.scrollingListener = stackCardsScrolling.bind(element);
+  window.addEventListener('scroll', element.scrollingListener);
+};
+
+function stackCardsScrolling() {
+  if (this.scrolling) return;
+  this.scrolling = true;
+  window.requestAnimationFrame(animateStackCards.bind(this));
+};
+
+function getAbsoluteTop(element) {
+  var top = 0;
+  while (element) {
+    top += element.offsetTop;
+    element = element.offsetParent;
+  }
+  return top;
+}
+
+function animateStackCards() {
+  var top = this.element.getBoundingClientRect().top;
+
+  for (var i = 0; i < this.items.length; i++) {
+    // cardTop/cardHeight/marginY are the css values for the card top position/height/Y offset
+    var cardTop = getAbsoluteTop(this.items[i]);
+    var cardHeight = this.items[i].offsetHeight;
+    var marginY = 20; // Same as the 'top' value in CSS
+    var scrolling = cardTop - top - i * (cardHeight + marginY);
+
+    if (scrolling > 0) {
+      // card is fixed - we can apply 3D transform
+      var rotateX = -scrolling * 0.05;
+      var translateZ = -scrolling * 0.5;
+      this.items[i].setAttribute('style', 'transform: translateY(' + (marginY * i) + 'px) rotateX(' + rotateX + 'deg) translateZ(' + translateZ + 'px);');
+    } else {
+      this.items[i].setAttribute('style', 'transform: translateY(' + (marginY * i) + 'px);');
+    }
+  }
+
+  this.scrolling = false;
+};
+
+var stackCards = document.getElementsByClassName('js-stack-cards');
+var intersectionObserverSupported = ('IntersectionObserver' in window && 'IntersectionObserverEntry' in window && 'intersectionRatio' in window.IntersectionObserverEntry.prototype);
+
+if (stackCards.length > 0 && intersectionObserverSupported) {
+  for (var i = 0; i < stackCards.length; i++) {
+    new StackCards(stackCards[i]);
+  }
+}
