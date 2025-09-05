@@ -126,10 +126,9 @@ body {
     min-height: 100vh;
     display: flex;
     align-items: center;
-    background: #ffffff;
+    background: transparent;
     color: #000000;
     text-align: center;
-    border-bottom: 1px solid #e5e5e5;
 }
 
 .hero-content {
@@ -213,28 +212,24 @@ body {
     transform: translateY(-2px);
 }
 
+#projects, #github, #skills, #education, #contact {
+    background-color: #ffffff;
+}
+
 /* Projects Section */
 .projects-grid {
     display: grid;
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
     gap: 2rem;
     perspective: 1000px;
     transform-style: preserve-3d;
+    justify-items: center;
 }
 
-.stack-cards {
-    position: relative;
-    gap: 2rem;
-}
 
-.stack-cards__item {
-    position: sticky;
-    top: 20px;
-    transform-origin: center top;
-    margin-bottom: 2rem;
-}
 
 .project-card {
+    max-width: 700px;
     background: #ffffff;
     border-radius: 12px;
     padding: 2rem;
@@ -299,9 +294,6 @@ body {
 }
 
 /* GitHub Section */
-.github-section {
-    background: #f8fafc;
-}
 
 .github-container {
     display: grid;

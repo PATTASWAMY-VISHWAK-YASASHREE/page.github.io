@@ -9,6 +9,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -38,16 +39,16 @@
     <section id="home" class="hero">
         <div id="particles-js"></div>
         <div class="container">
-            <div class="hero-content" data-aos="fade-up">
+            <div class="hero-content">
                 <h1 class="hero-title">
-                    <span class="hero-name" data-aos="fade-up" data-aos-delay="200">Vishwak Pattaswamy</span>
-                    <span class="hero-role" data-aos="fade-up" data-aos-delay="400">Software Developer</span>
+                    <span class="hero-name">Vishwak Pattaswamy</span>
+                    <span class="hero-role">Software Developer</span>
                 </h1>
-                <p class="hero-description" data-aos="fade-up" data-aos-delay="600">
+                <p class="hero-description">
                     Building scalable web applications and digital solutions with modern technologies. 
                     Focused on clean code, user experience, and delivering results.
                 </p>
-                <div class="hero-actions" data-aos="fade-up" data-aos-delay="800">
+                <div class="hero-actions">
                     <a href="#projects" class="btn btn-primary">View Projects</a>
                     <a href="#contact" class="btn btn-secondary">Get In Touch</a>
                 </div>
@@ -58,63 +59,61 @@
     <!-- Projects Section -->
     <section id="projects" class="section">
         <div class="container">
-            <h2 class="section-title" data-aos="fade-up">Projects</h2>
+            <h2 class="section-title">Projects</h2>
             <div class="projects-grid">
-                <div class="stack-cards js-stack-cards">
-                    <div class="project-card stack-cards__item js-stack-cards__item" data-aos="fade-up" data-aos-delay="200">
-                        <div class="project-header">
-                            <h3>E-commerce Platform</h3>
-                            <div class="project-links">
-                                <a href="#" class="project-link" target="_blank">Live Demo</a>
-                                <a href="#" class="project-link" target="_blank">GitHub</a>
-                            </div>
-                        </div>
-                        <p class="project-description">
-                            A full-featured e-commerce platform with a modern, responsive design. Features include product search, filtering, a shopping cart, and a secure checkout process.
-                        </p>
-                        <div class="project-tech">
-                            <span class="tech-tag">React</span>
-                            <span class="tech-tag">Node.js</span>
-                            <span class="tech-tag">Express.js</span>
-                            <span class="tech-tag">MongoDB</span>
+                <div class="project-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="project-header">
+                        <h3>E-commerce Platform</h3>
+                        <div class="project-links">
+                            <a href="#" class="project-link" target="_blank">Live Demo</a>
+                            <a href="#" class="project-link" target="_blank">GitHub</a>
                         </div>
                     </div>
+                    <p class="project-description">
+                        A full-featured e-commerce platform with a modern, responsive design. Features include product search, filtering, a shopping cart, and a secure checkout process.
+                    </p>
+                    <div class="project-tech">
+                        <span class="tech-tag">React</span>
+                        <span class="tech-tag">Node.js</span>
+                        <span class="tech-tag">Express.js</span>
+                        <span class="tech-tag">MongoDB</span>
+                    </div>
+                </div>
 
-                    <div class="project-card stack-cards__item js-stack-cards__item" data-aos="fade-up" data-aos-delay="400">
-                        <div class="project-header">
-                            <h3>Data Visualization Dashboard</h3>
-                            <div class="project-links">
-                                <a href="#" class="project-link" target="_blank">Live Demo</a>
-                                <a href="#" class="project-link" target="_blank">GitHub</a>
-                            </div>
-                        </div>
-                        <p class="project-description">
-                            A web-based dashboard for visualizing complex datasets. The dashboard provides interactive charts and graphs to help users understand data trends.
-                        </p>
-                        <div class="project-tech">
-                            <span class="tech-tag">Python</span>
-                            <span class="tech-tag">Django</span>
-                            <span class="tech-tag">D3.js</span>
-                            <span class="tech-tag">PostgreSQL</span>
+                <div class="project-card" data-aos="fade-up" data-aos-delay="400">
+                    <div class="project-header">
+                        <h3>Data Visualization Dashboard</h3>
+                        <div class="project-links">
+                            <a href="#" class="project-link" target="_blank">Live Demo</a>
+                            <a href="#" class="project-link" target="_blank">GitHub</a>
                         </div>
                     </div>
+                    <p class="project-description">
+                        A web-based dashboard for visualizing complex datasets. The dashboard provides interactive charts and graphs to help users understand data trends.
+                    </p>
+                    <div class="project-tech">
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">Django</span>
+                        <span class="tech-tag">D3.js</span>
+                        <span class="tech-tag">PostgreSQL</span>
+                    </div>
+                </div>
 
-                    <div class="project-card stack-cards__item js-stack-cards__item" data-aos="fade-up" data-aos-delay="600">
-                        <div class="project-header">
-                            <h3>Real-time Chat Application</h3>
-                            <div class="project-links">
-                                <a href="#" class="project-link" target="_blank">Live Demo</a>
-                                <a href="#" class="project-link" target="_blank">GitHub</a>
-                            </div>
+                <div class="project-card" data-aos="fade-up" data-aos-delay="600">
+                    <div class="project-header">
+                        <h3>Real-time Chat Application</h3>
+                        <div class="project-links">
+                            <a href="#" class="project-link" target="_blank">Live Demo</a>
+                            <a href="#" class="project-link" target="_blank">GitHub</a>
                         </div>
-                        <p class="project-description">
-                            A real-time chat application that allows users to communicate instantly. The application is built with a modern, responsive UI and features a scalable backend.
-                        </p>
-                        <div class="project-tech">
-                            <span class="tech-tag">Vue.js</span>
-                            <span class="tech-tag">Firebase</span>
-                            <span class="tech-tag">WebSocket</span>
-                        </div>
+                    </div>
+                    <p class="project-description">
+                        A real-time chat application that allows users to communicate instantly. The application is built with a modern, responsive UI and features a scalable backend.
+                    </p>
+                    <div class="project-tech">
+                        <span class="tech-tag">Vue.js</span>
+                        <span class="tech-tag">Firebase</span>
+                        <span class="tech-tag">WebSocket</span>
                     </div>
                 </div>
             </div>
@@ -124,8 +123,8 @@
     <!-- GitHub Section -->
     <section id="github" class="section github-section">
         <div class="container">
-            <h2 class="section-title" data-aos="fade-up">GitHub Profile</h2>
-            <div class="github-container" data-aos="fade-up" data-aos-delay="200">
+            <h2 class="section-title">GitHub Profile</h2>
+            <div class="github-container">
                 <div class="github-profile" id="github-profile">
                     <div class="github-loading">Loading GitHub profile...</div>
                 </div>
@@ -141,82 +140,82 @@
 
   <section id="skills" class="section">
   <div class="container">
-    <h2 class="section-title" data-aos="fade-up">Skills & Technologies</h2>
+    <h2 class="section-title">Skills & Technologies</h2>
     
-    <div class="skills-container" data-aos="fade-up" data-aos-delay="200">
-      <div class="skill-item" data-aos="fade-up" data-aos-delay="300">
+    <div class="skills-container">
+      <div class="skill-item">
         <img src="assets/icons/javascript.svg" alt="JavaScript" class="skill-logo">
         <span>JavaScript</span>
       </div>
-      <div class="skill-item" data-aos="fade-up" data-aos-delay="350">
+      <div class="skill-item">
         <img src="assets/icons/typescript.svg" alt="TypeScript" class="skill-logo">
         <span>TypeScript</span>
       </div>
-      <div class="skill-item" data-aos="fade-up" data-aos-delay="400">
+      <div class="skill-item">
         <img src="assets/icons/python.svg" alt="Python" class="skill-logo">
         <span>Python</span>
       </div>
-      <div class="skill-item" data-aos="fade-up" data-aos-delay="450">
+      <div class="skill-item">
         <img src="assets/icons/cpp.svg" alt="C++" class="skill-logo">
         <span>C++</span>
       </div>
-      <div class="skill-item" data-aos="fade-up" data-aos-delay="500">
+      <div class="skill-item">
         <img src="assets/icons/html5.svg" alt="HTML5" class="skill-logo">
         <span>HTML5</span>
       </div>
-      <div class="skill-item" data-aos="fade-up" data-aos-delay="550">
+      <div class="skill-item">
         <img src="assets/icons/css3.svg" alt="CSS3" class="skill-logo">
         <span>CSS3</span>
       </div>
-      <div class="skill-item" data-aos="fade-up" data-aos-delay="600">
+      <div class="skill-item">
         <img src="assets/icons/react.svg" alt="React" class="skill-logo">
         <span>React</span>
       </div>
-      <div class="skill-item" data-aos="fade-up" data-aos-delay="650">
+      <div class="skill-item">
         <img src="assets/icons/vuejs.svg" alt="Vue.js" class="skill-logo">
         <span>Vue.js</span>
       </div>
-      <div class="skill-item" data-aos="fade-up" data-aos-delay="700">
+      <div class="skill-item">
         <img src="assets/icons/nodejs.svg" alt="Node.js" class="skill-logo">
         <span>Node.js</span>
       </div>
-      <div class="skill-item" data-aos="fade-up" data-aos-delay="750">
+      <div class="skill-item">
         <img src="assets/icons/django.svg" alt="Django" class="skill-logo">
         <span>Django</span>
       </div>
-      <div class="skill-item" data-aos="fade-up" data-aos-delay="800">
+      <div class="skill-item">
         <img src="assets/icons/expressjs.svg" alt="Express.js" class="skill-logo">
         <span>Express.js</span>
       </div>
-      <div class="skill-item" data-aos="fade-up" data-aos-delay="850">
+      <div class="skill-item">
         <img src="assets/icons/graphql.svg" alt="GraphQL" class="skill-logo">
         <span>GraphQL</span>
       </div>
-      <div class="skill-item" data-aos="fade-up" data-aos-delay="900">
+      <div class="skill-item">
         <img src="assets/icons/api.svg" alt="REST APIs" class="skill-logo">
         <span>REST APIs</span>
       </div>
-      <div class="skill-item" data-aos="fade-up" data-aos-delay="950">
+      <div class="skill-item">
         <img src="assets/icons/mongodb.svg" alt="MongoDB" class="skill-logo">
         <span>MongoDB</span>
       </div>
-      <div class="skill-item" data-aos="fade-up" data-aos-delay="1000">
+      <div class="skill-item">
         <img src="assets/icons/postgresql.svg" alt="PostgreSQL" class="skill-logo">
         <span>PostgreSQL</span>
       </div>
-      <div class="skill-item" data-aos="fade-up" data-aos-delay="1050">
+      <div class="skill-item">
         <img src="assets/icons/mysql.svg" alt="MySQL" class="skill-logo">
         <span>MySQL</span>
       </div>
-      <div class="skill-item" data-aos="fade-up" data-aos-delay="1100">
+      <div class="skill-item">
         <img src="assets/icons/git.svg" alt="Git" class="skill-logo">
         <span>Git</span>
       </div>
-      <div class="skill-item" data-aos="fade-up" data-aos-delay="1150">
+      <div class="skill-item">
         <img src="assets/icons/docker.svg" alt="Docker" class="skill-logo">
         <span>Docker</span>
       </div>
-      <div class="skill-item" data-aos="fade-up" data-aos-delay="1200">
+      <div class="skill-item">
         <img src="assets/icons/aws.svg" alt="AWS" class="skill-logo">
         <span>AWS</span>
       </div>
@@ -226,9 +225,9 @@
     <!-- Education Section -->
     <section id="education" class="section">
         <div class="container">
-            <h2 class="section-title" data-aos="fade-up">Education & Certifications</h2>
+            <h2 class="section-title">Education & Certifications</h2>
             <div class="education-grid">
-                <div class="education-card" data-aos="fade-up" data-aos-delay="200">
+                <div class="education-card">
                     <h3>B.Tech in Electronics and Communication</h3>
                     <p class="education-details">B.V. Raju Institute of Technology, Narsapur • 2023 - 2027</p>
                     <p class="education-description">
@@ -236,7 +235,7 @@
                     </p>
                 </div>
                 
-                <div class="education-card" data-aos="fade-up" data-aos-delay="400">
+                <div class="education-card">
                     <h3>AWS Certified Developer - Associate</h3>
                     <p class="education-details">Amazon Web Services • 2023</p>
                     <p class="education-description">
@@ -244,7 +243,7 @@
                     </p>
                 </div>
                 
-                <div class="education-card" data-aos="fade-up" data-aos-delay="600">
+                <div class="education-card">
                     <h3>Full-Stack Web Development Bootcamp</h3>
                     <p class="education-details">Online Coding School • 2022</p>
                     <p class="education-description">
@@ -258,24 +257,24 @@
     <!-- Contact Section -->
     <section id="contact" class="section">
         <div class="container">
-            <h2 class="section-title" data-aos="fade-up">Contact</h2>
+            <h2 class="section-title">Contact</h2>
             <div class="contact-content">
                 <div class="contact-info">
-                    <div class="contact-item" data-aos="fade-up" data-aos-delay="200">
+                    <div class="contact-item">
                         <h3>Email</h3>
                         <a href="mailto:pvishwak18@gmail.com">pvishwak18@gmail.com</a>
                     </div>
-                    <div class="contact-item" data-aos="fade-up" data-aos-delay="400">
+                    <div class="contact-item">
                         <h3>Phone</h3>
                         <a href="tel:+919885541788">+91 9885541788</a>
                     </div>
-                    <div class="contact-item" data-aos="fade-up" data-aos-delay="600">
+                    <div class="contact-item">
                         <h3>LinkedIn</h3>
                         <a href="https://www.linkedin.com/in/pattaswamy-vishwak-yashasree-264261293/" target="_blank">
                             pattaswamy-vishwak-yashasree
                         </a>
                     </div>
-                    <div class="contact-item" data-aos="fade-up" data-aos-delay="800">
+                    <div class="contact-item">
                         <h3>GitHub</h3>
                         <a href="https://github.com/PATTASWAMY-VISHWAK-YASASHREE" target="_blank">
                             PATTASWAMY-VISHWAK-YASASHREE
