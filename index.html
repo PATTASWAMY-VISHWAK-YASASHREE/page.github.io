@@ -1,8 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8    <!-- Projects Section -->
+    <section id="projects" class="projects scroll-section">
+        <div class="container">
+            <h2 class="section-title" data-scroll-animation="fade-up">Projects</h2>
+            <div class="projects-container">
+                <div class="project-card" data-project="1" data-scroll-animation="slide-up" data-delay="0.1">  <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vishwak Pattaswamy | Software Developer</title>
     <meta name="description" content="Software Developer specializing in modern web technologies and solutions">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -12,6 +16,11 @@
     <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
     <!-- Font Awesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Three.js for 3D animations -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <!-- GSAP for advanced animations -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -61,78 +70,93 @@
     </section>
 
     <!-- Projects Section -->
-    <section id="projects" class="section">
+    <section id="projects" class="section projects-section">
         <div class="container">
-            <h2 class="section-title" data-aos="fade-up">Projects</h2>
-            <div class="projects-grid">
-                <div class="project-card" data-aos="fade-up" data-aos-delay="200">
+            <h2 class="section-title holographic-text" data-aos="fade-up">Projects</h2>
+            <div class="projects-container">
+                <div class="project-card floating-card" data-project="1" data-aos="fade-up" data-aos-delay="200">
                     <div class="project-header">
-                        <h3>E-commerce Platform</h3>
+                        <h3 class="project-title">E-commerce Platform</h3>
                         <div class="project-links">
-                            <a href="#" class="project-link" target="_blank">Live Demo</a>
-                            <a href="#" class="project-link" target="_blank">GitHub</a>
+                            <a href="#" class="project-link glow-button" target="_blank">
+                                <i class="fas fa-external-link-alt"></i> Live Demo
+                            </a>
+                            <a href="#" class="project-link glow-button" target="_blank">
+                                <i class="fab fa-github"></i> GitHub
+                            </a>
                         </div>
                     </div>
                     <p class="project-description">
                         A full-featured e-commerce platform with a modern, responsive design. Features include product search, filtering, a shopping cart, and a secure checkout process.
                     </p>
                     <div class="project-tech">
-                        <span class="tech-tag">React</span>
-                        <span class="tech-tag">Node.js</span>
-                        <span class="tech-tag">Express.js</span>
-                        <span class="tech-tag">MongoDB</span>
+                        <span class="tech-tag holographic-tag">React</span>
+                        <span class="tech-tag holographic-tag">Node.js</span>
+                        <span class="tech-tag holographic-tag">Express.js</span>
+                        <span class="tech-tag holographic-tag">MongoDB</span>
                     </div>
+                    <div class="holographic-overlay"></div>
                 </div>
 
-                <div class="project-card" data-aos="fade-up" data-aos-delay="400">
+                <div class="project-card" data-project="2" data-scroll-animation="slide-up" data-delay="0.2">
                     <div class="project-header">
-                        <h3>Data Visualization Dashboard</h3>
+                        <h3 class="project-title">Data Visualization Dashboard</h3>
                         <div class="project-links">
-                            <a href="#" class="project-link" target="_blank">Live Demo</a>
-                            <a href="#" class="project-link" target="_blank">GitHub</a>
+                            <a href="#" class="project-link glow-button" target="_blank">
+                                <i class="fas fa-external-link-alt"></i> Live Demo
+                            </a>
+                            <a href="#" class="project-link glow-button" target="_blank">
+                                <i class="fab fa-github"></i> GitHub
+                            </a>
                         </div>
                     </div>
                     <p class="project-description">
                         A web-based dashboard for visualizing complex datasets. The dashboard provides interactive charts and graphs to help users understand data trends.
                     </p>
                     <div class="project-tech">
-                        <span class="tech-tag">Python</span>
-                        <span class="tech-tag">Django</span>
-                        <span class="tech-tag">D3.js</span>
-                        <span class="tech-tag">MySQL</span>
+                        <span class="tech-tag holographic-tag">Python</span>
+                        <span class="tech-tag holographic-tag">Django</span>
+                        <span class="tech-tag holographic-tag">D3.js</span>
+                        <span class="tech-tag holographic-tag">MySQL</span>
                     </div>
+                    <div class="holographic-overlay"></div>
                 </div>
 
-                <div class="project-card" data-aos="fade-up" data-aos-delay="600">
+                <div class="project-card" data-project="3" data-scroll-animation="slide-up" data-delay="0.3">
                     <div class="project-header">
-                        <h3>Real-time Chat Application</h3>
+                        <h3 class="project-title">Real-time Chat Application</h3>
                         <div class="project-links">
-                            <a href="#" class="project-link" target="_blank">Live Demo</a>
-                            <a href="#" class="project-link" target="_blank">GitHub</a>
+                            <a href="#" class="project-link glow-button" target="_blank">
+                                <i class="fas fa-external-link-alt"></i> Live Demo
+                            </a>
+                            <a href="#" class="project-link glow-button" target="_blank">
+                                <i class="fab fa-github"></i> GitHub
+                            </a>
                         </div>
                     </div>
                     <p class="project-description">
                         A real-time chat application that allows users to communicate instantly. The application is built with a modern, responsive UI and features a scalable backend.
                     </p>
                     <div class="project-tech">
-                        <span class="tech-tag">Vue.js</span>
-                        <span class="tech-tag">Firebase</span>
-                        <span class="tech-tag">WebSocket</span>
+                        <span class="tech-tag holographic-tag">Vue.js</span>
+                        <span class="tech-tag holographic-tag">Firebase</span>
+                        <span class="tech-tag holographic-tag">WebSocket</span>
                     </div>
+                    <div class="holographic-overlay"></div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- GitHub Section -->
-    <section id="github" class="section github-section">
+    <section id="github" class="section github-section scroll-section">
         <div class="container">
-            <h2 class="section-title">GitHub Profile</h2>
+            <h2 class="section-title" data-scroll-animation="fade-up">GitHub Profile</h2>
             <div class="github-container">
-                <div class="github-profile" id="github-profile">
+                <div class="github-profile" id="github-profile" data-scroll-animation="slide-left" data-delay="0.1">
                     <div class="github-loading">Loading GitHub profile...</div>
                 </div>
-                <div class="github-repos" id="github-repos">
+                <div class="github-repos" id="github-repos" data-scroll-animation="slide-right" data-delay="0.2">
                     <h3>Pinned Repositories</h3>
                     <div class="repos-grid" id="repos-grid">
                         <div class="github-loading">Loading repositories...</div>
@@ -142,80 +166,80 @@
         </div>
     </section>
 
-  <section id="skills" class="section">
+  <section id="skills" class="section skills-section scroll-section">
   <div class="container">
-    <h2 class="section-title">Skills & Technologies</h2>
+    <h2 class="section-title" data-scroll-animation="fade-up">Skills & Technologies</h2>
     
     <div class="skills-container">
-      <div class="skill-item">
+      <div class="skill-item" data-skill="JavaScript" data-level="95" data-scroll-animation="zoom-in" data-delay="0.1">
         <img src="assets/icons/javascript.svg" alt="JavaScript" class="skill-logo">
         <span>JavaScript</span>
       </div>
-      <div class="skill-item">
+      <div class="skill-item" data-skill="TypeScript" data-level="90" data-scroll-animation="zoom-in" data-delay="0.15">
         <img src="assets/icons/typescript.svg" alt="TypeScript" class="skill-logo">
         <span>TypeScript</span>
       </div>
-      <div class="skill-item">
+      <div class="skill-item" data-skill="Python" data-level="88" data-scroll-animation="zoom-in" data-delay="0.2">
         <img src="assets/icons/python.svg" alt="Python" class="skill-logo">
         <span>Python</span>
       </div>
-      <div class="skill-item">
+      <div class="skill-item" data-skill="C++" data-level="85" data-scroll-animation="zoom-in" data-delay="0.25">
         <img src="assets/icons/cpp.svg" alt="C++" class="skill-logo">
         <span>C++</span>
       </div>
-      <div class="skill-item">
+      <div class="skill-item" data-skill="HTML5" data-level="95" data-scroll-animation="zoom-in" data-delay="0.3">
         <img src="assets/icons/html5.svg" alt="HTML5" class="skill-logo">
         <span>HTML5</span>
       </div>
-      <div class="skill-item">
+      <div class="skill-item" data-skill="CSS3" data-level="92" data-scroll-animation="zoom-in" data-delay="0.35">
         <img src="assets/icons/css3.svg" alt="CSS3" class="skill-logo">
         <span>CSS3</span>
       </div>
-      <div class="skill-item">
+      <div class="skill-item" data-skill="React" data-level="90" data-scroll-animation="zoom-in" data-delay="0.4">
         <img src="assets/icons/react.svg" alt="React" class="skill-logo">
         <span>React</span>
       </div>
-      <div class="skill-item">
+      <div class="skill-item" data-skill="Vue.js" data-level="85" data-scroll-animation="zoom-in" data-delay="0.45">
         <img src="assets/icons/vuejs.svg" alt="Vue.js" class="skill-logo">
         <span>Vue.js</span>
       </div>
-      <div class="skill-item">
+      <div class="skill-item" data-skill="Node.js" data-level="88" data-scroll-animation="zoom-in" data-delay="0.5">
         <img src="assets/icons/nodejs.svg" alt="Node.js" class="skill-logo">
         <span>Node.js</span>
       </div>
-      <div class="skill-item">
+      <div class="skill-item" data-skill="Django" data-level="82" data-scroll-animation="zoom-in" data-delay="0.55">
         <img src="assets/icons/django.svg" alt="Django" class="skill-logo">
         <span>Django</span>
       </div>
-      <div class="skill-item">
+      <div class="skill-item" data-skill="Express.js" data-level="85" data-scroll-animation="zoom-in" data-delay="0.6">
         <img src="assets/icons/expressjs.svg" alt="Express.js" class="skill-logo">
         <span>Express.js</span>
       </div>
-      <div class="skill-item">
+      <div class="skill-item" data-skill="GraphQL" data-level="78" data-scroll-animation="zoom-in" data-delay="0.65">
         <img src="assets/icons/graphql.svg" alt="GraphQL" class="skill-logo">
         <span>GraphQL</span>
       </div>
-      <div class="skill-item">
+      <div class="skill-item" data-skill="REST APIs" data-level="92" data-scroll-animation="zoom-in" data-delay="0.7">
         <img src="assets/icons/api.svg" alt="REST APIs" class="skill-logo">
         <span>REST APIs</span>
       </div>
-      <div class="skill-item">
+      <div class="skill-item" data-scroll-animation="zoom-in" data-delay="0.75">
         <img src="assets/icons/mongodb.svg" alt="MongoDB" class="skill-logo">
         <span>MongoDB</span>
       </div>
-      <div class="skill-item">
+      <div class="skill-item" data-scroll-animation="zoom-in" data-delay="0.8">
         <img src="assets/icons/mysql.svg" alt="MySQL" class="skill-logo">
         <span>MySQL</span>
       </div>
-      <div class="skill-item">
+      <div class="skill-item" data-scroll-animation="zoom-in" data-delay="0.85">
         <img src="assets/icons/git.svg" alt="Git" class="skill-logo">
         <span>Git</span>
       </div>
-      <div class="skill-item">
+      <div class="skill-item" data-scroll-animation="zoom-in" data-delay="0.9">
         <img src="assets/icons/docker.svg" alt="Docker" class="skill-logo">
         <span>Docker</span>
       </div>
-      <div class="skill-item">
+      <div class="skill-item" data-scroll-animation="zoom-in" data-delay="0.95">
         <img src="assets/icons/aws.svg" alt="AWS" class="skill-logo">
         <span>AWS</span>
       </div>
@@ -223,11 +247,11 @@
   </div>
 </section>
     <!-- Education Section -->
-    <section id="education" class="section">
+    <section id="education" class="section scroll-section">
         <div class="container">
-            <h2 class="section-title">Education & Certifications</h2>
+            <h2 class="section-title" data-scroll-animation="fade-up">Education & Certifications</h2>
             <div class="education-grid">
-                <div class="education-card">
+                <div class="education-card" data-scroll-animation="slide-up" data-delay="0.1">
                     <h3>B.Tech in Electronics and Communication</h3>
                     <p class="education-details">B.V. Raju Institute of Technology, Narsapur • 2023 - 2027</p>
                     <p class="education-description">
@@ -235,7 +259,7 @@
                     </p>
                 </div>
                 
-                <div class="education-card">
+                <div class="education-card" data-scroll-animation="slide-up" data-delay="0.2">
                     <h3>AWS Certified Developer - Associate</h3>
                     <p class="education-details">Amazon Web Services • 2023</p>
                     <p class="education-description">
@@ -243,7 +267,7 @@
                     </p>
                 </div>
                 
-                <div class="education-card">
+                <div class="education-card" data-scroll-animation="slide-up" data-delay="0.3">
                     <h3>Full-Stack Web Development Bootcamp</h3>
                     <p class="education-details">Online Coding School • 2022</p>
                     <p class="education-description">
@@ -255,26 +279,26 @@
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="section">
+    <section id="contact" class="section scroll-section">
         <div class="container">
-            <h2 class="section-title">Contact</h2>
+            <h2 class="section-title" data-scroll-animation="fade-up">Contact</h2>
             <div class="contact-content">
                 <div class="contact-info">
-                    <div class="contact-item">
+                    <div class="contact-item" data-scroll-animation="slide-up" data-delay="0.1">
                         <h3>Email</h3>
                         <a href="mailto:pvishwak18@gmail.com">pvishwak18@gmail.com</a>
                     </div>
-                    <div class="contact-item">
+                    <div class="contact-item" data-scroll-animation="slide-up" data-delay="0.2">
                         <h3>Phone</h3>
                         <a href="tel:+919885541788">+91 9885541788</a>
                     </div>
-                    <div class="contact-item">
+                    <div class="contact-item" data-scroll-animation="slide-up" data-delay="0.3">
                         <h3>LinkedIn</h3>
                         <a href="https://www.linkedin.com/in/pattaswamy-vishwak-yashasree-264261293/" target="_blank">
                             pattaswamy-vishwak-yashasree
                         </a>
                     </div>
-                    <div class="contact-item">
+                    <div class="contact-item" data-scroll-animation="slide-up" data-delay="0.4">
                         <h3>GitHub</h3>
                         <a href="https://github.com/PATTASWAMY-VISHWAK-YASASHREE" target="_blank">
                             PATTASWAMY-VISHWAK-YASASHREE
@@ -286,24 +310,20 @@
     </section>
 
     <!-- Footer -->
-    <footer class="footer">
+    <footer class="footer scroll-section">
         <div class="container">
-            <p>&copy; 2024 Vishwak Pattaswamy. All rights reserved.</p>
+            <p data-scroll-animation="fade-up">&copy; 2024 Vishwak Pattaswamy. All rights reserved.</p>
         </div>
     </footer>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js"></script>
-    <!-- AOS Animation Library -->
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <!-- Typed.js for Typing Animation -->
-    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+    <!-- Advanced Modern Animations Script -->
+    <script src="modern-animations.js"></script>
     <script>
-      AOS.init({
-        duration: 1000,
-        easing: 'ease-in-out',
-        once: true,
-        mirror: false
-      });
+        // Initialize modern animations
+        document.addEventListener('DOMContentLoaded', function() {
+            const animations = new ModernScrollAnimations();
+            animations.init();
+        });
     </script>
     <script src="script.js"></script>
 </body>
