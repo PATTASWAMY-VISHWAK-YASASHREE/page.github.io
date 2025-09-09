@@ -8,8 +8,12 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+    <!-- AOS Animation Library -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
+    <!-- Typing Animation Library -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typed.js@2.0.12">
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -39,16 +43,16 @@
     <section id="home" class="hero">
         <div id="particles-js"></div>
         <div class="container">
-            <div class="hero-content">
-                <h1 class="hero-title">
-                    <span class="hero-name">Vishwak Pattaswamy</span>
-                    <span class="hero-role">Software Developer</span>
+            <div class="hero-content" data-aos="fade-up">
+                <h1 class="hero-title" data-aos="fade-down" data-aos-delay="200">
+                    <span class="hero-name typing-text">Vishwak Pattaswamy</span>
+                    <span class="hero-role" data-aos="fade-left" data-aos-delay="400">Software Developer</span>
                 </h1>
-                <p class="hero-description">
+                <p class="hero-description" data-aos="fade-up" data-aos-delay="600">
                     Building scalable web applications and digital solutions with modern technologies. 
                     Focused on clean code, user experience, and delivering results.
                 </p>
-                <div class="hero-actions">
+                <div class="hero-actions" data-aos="fade-up" data-aos-delay="800">
                     <a href="#projects" class="btn btn-primary">View Projects</a>
                     <a href="#contact" class="btn btn-secondary">Get In Touch</a>
                 </div>
@@ -59,7 +63,7 @@
     <!-- Projects Section -->
     <section id="projects" class="section">
         <div class="container">
-            <h2 class="section-title">Projects</h2>
+            <h2 class="section-title" data-aos="fade-up">Projects</h2>
             <div class="projects-grid">
                 <div class="project-card" data-aos="fade-up" data-aos-delay="200">
                     <div class="project-header">
@@ -95,7 +99,7 @@
                         <span class="tech-tag">Python</span>
                         <span class="tech-tag">Django</span>
                         <span class="tech-tag">D3.js</span>
-                        <span class="tech-tag">PostgreSQL</span>
+                        <span class="tech-tag">MySQL</span>
                     </div>
                 </div>
 
@@ -200,10 +204,6 @@
         <span>MongoDB</span>
       </div>
       <div class="skill-item">
-        <img src="assets/icons/postgresql.svg" alt="PostgreSQL" class="skill-logo">
-        <span>PostgreSQL</span>
-      </div>
-      <div class="skill-item">
         <img src="assets/icons/mysql.svg" alt="MySQL" class="skill-logo">
         <span>MySQL</span>
       </div>
@@ -293,9 +293,17 @@
     </footer>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <!-- AOS Animation Library -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <!-- Typed.js for Typing Animation -->
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
     <script>
-      AOS.init();
+      AOS.init({
+        duration: 1000,
+        easing: 'ease-in-out',
+        once: true,
+        mirror: false
+      });
     </script>
     <script src="script.js"></script>
 </body>

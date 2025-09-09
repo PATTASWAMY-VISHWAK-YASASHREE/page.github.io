@@ -1,4 +1,4 @@
-// Mobile Navigation
+// Enhanced Mobile Navigation with Modern Features
 document.addEventListener('DOMContentLoaded', function() {
     particlesJS.load('particles-js', 'particles.json', function() {
       console.log('callback - particles.js config loaded');
@@ -7,22 +7,49 @@ document.addEventListener('DOMContentLoaded', function() {
     const navToggle = document.querySelector('.nav-toggle');
     const navMenu = document.querySelector('.nav-menu');
     const navLinks = document.querySelectorAll('.nav-link');
+    const body = document.body;
 
-    // Toggle mobile menu
-    navToggle.addEventListener('click', function() {
-        navMenu.classList.toggle('active');
-        navToggle.classList.toggle('active');
+    // Toggle mobile menu with enhanced animations
+    navToggle.addEventListener('click', function(e) {
+        e.stopPropagation();
+        const isActive = navMenu.classList.contains('active');
+        
+        if (!isActive) {
+            navMenu.classList.add('active');
+            navToggle.classList.add('active');
+            body.style.overflow = 'hidden'; // Prevent scroll when menu is open
+            
+            // Add staggered animation to nav links
+            navLinks.forEach((link, index) => {
+                link.style.animationDelay = `${(index + 1) * 0.1}s`;
+            });
+        } else {
+            closeMenu();
+        }
+    });
+
+    // Close menu function
+    function closeMenu() {
+        navMenu.classList.remove('active');
+        navToggle.classList.remove('active');
+        body.style.overflow = '';
+    }
+
+    // Close mobile menu when clicking outside
+    document.addEventListener('click', function(e) {
+        if (!navMenu.contains(e.target) && !navToggle.contains(e.target)) {
+            closeMenu();
+        }
     });
 
     // Close mobile menu when clicking on a link
     navLinks.forEach(link => {
         link.addEventListener('click', function() {
-            navMenu.classList.remove('active');
-            navToggle.classList.remove('active');
+            closeMenu();
         });
     });
 
-    // Smooth scrolling for navigation links
+    // Enhanced smooth scrolling for navigation links
     navLinks.forEach(link => {
         link.addEventListener('click', function(e) {
             e.preventDefault();
@@ -35,9 +62,32 @@ document.addEventListener('DOMContentLoaded', function() {
                     top: offsetTop,
                     behavior: 'smooth'
                 });
+                
+                // Add ripple effect on click
+                createRipple(e, this);
             }
         });
     });
+
+    // Create ripple effect for buttons
+    function createRipple(event, element) {
+        const ripple = document.createElement('span');
+        const rect = element.getBoundingClientRect();
+        const size = Math.max(rect.width, rect.height);
+        const x = event.clientX - rect.left - size / 2;
+        const y = event.clientY - rect.top - size / 2;
+        
+        ripple.style.width = ripple.style.height = size + 'px';
+        ripple.style.left = x + 'px';
+        ripple.style.top = y + 'px';
+        ripple.classList.add('ripple');
+        
+        element.appendChild(ripple);
+        
+        setTimeout(() => {
+            ripple.remove();
+        }, 600);
+    }
 
     // Active navigation highlighting
     window.addEventListener('scroll', function() {
@@ -65,22 +115,65 @@ document.addEventListener('DOMContentLoaded', function() {
     initializeGitHub();
 });
 
-// GitHub API Integration
+// Enhanced GitHub API Integration with Loading States
 async function initializeGitHub() {
     const username = 'PATTASWAMY-VISHWAK-YASASHREE';
     
+    // Show loading states
+    showGitHubLoading();
+    
     try {
-        // Fetch user profile with CORS handling
+        // Add loading delay for better UX
+        await new Promise(resolve => setTimeout(resolve, 1000));
+        
+        // Fetch user profile with enhanced error handling
         await fetchGitHubProfile(username);
         
-        // Fetch repositories
+        // Fetch repositories with language filtering
         await fetchGitHubRepos(username);
+        
+        // Add success animation
+        animateGitHubContent();
         
     } catch (error) {
         console.error('Error initializing GitHub data:', error);
-        // Show fallback static data for demo purposes
+        // Show fallback static data with animation
         showFallbackGitHubData();
     }
+}
+
+function showGitHubLoading() {
+    const profileContainer = document.getElementById('github-profile');
+    const reposContainer = document.getElementById('repos-grid');
+    
+    profileContainer.innerHTML = `
+        <div class="github-loading">
+            <div class="loading-spinner"></div>
+            <p>Loading GitHub profile...</p>
+        </div>
+    `;
+    
+    reposContainer.innerHTML = `
+        <div class="github-loading">
+            <div class="loading-spinner"></div>
+            <p>Loading repositories...</p>
+        </div>
+    `;
+}
+
+function animateGitHubContent() {
+    const profileContainer = document.getElementById('github-profile');
+    const reposContainer = document.getElementById('repos-grid');
+    
+    profileContainer.style.opacity = '0';
+    reposContainer.style.opacity = '0';
+    
+    setTimeout(() => {
+        profileContainer.style.transition = 'opacity 0.6s ease';
+        reposContainer.style.transition = 'opacity 0.6s ease';
+        profileContainer.style.opacity = '1';
+        reposContainer.style.opacity = '1';
+    }, 100);
 }
 
 async function fetchGitHubProfile(username) {
@@ -425,52 +518,318 @@ document.addEventListener('DOMContentLoaded', function() {
     loadGitHubDataOnScroll();
 });
 
+// Enhanced typing animation for hero text with multiple effects
+function initTypingAnimation() {
+    const typingElements = document.querySelectorAll('.typing-text');
+    
+    typingElements.forEach((element, index) => {
+        const text = element.textContent;
+        element.textContent = '';
+        element.style.opacity = '0';
+        
+        // Fade in the element first
+        setTimeout(() => {
+            element.style.transition = 'opacity 0.5s ease';
+            element.style.opacity = '1';
+        }, index * 500);
+        
+        // Use Typed.js if available, otherwise fallback to custom function
+        if (typeof Typed !== 'undefined') {
+            setTimeout(() => {
+                new Typed(element, {
+                    strings: [text],
+                    typeSpeed: 75,
+                    backSpeed: 30,
+                    showCursor: true,
+                    cursorChar: '|',
+                    autoInsertCss: true,
+                    onComplete: function() {
+                        element.classList.add('typing-complete');
+                        // Add rainbow animation after typing completes
+                        setTimeout(() => {
+                            element.classList.add('rainbow-text');
+                        }, 1000);
+                    }
+                });
+            }, (index * 500) + 800);
+        } else {
+            // Enhanced fallback typing animation
+            setTimeout(() => {
+                let i = 0;
+                function type() {
+                    if (i < text.length) {
+                        element.textContent += text.charAt(i);
+                        i++;
+                        // Variable speed for more natural typing
+                        const delay = Math.random() * 100 + 50;
+                        setTimeout(type, delay);
+                    } else {
+                        element.classList.add('typing-complete');
+                        setTimeout(() => {
+                            element.classList.add('rainbow-text');
+                        }, 1000);
+                    }
+                }
+                type();
+            }, (index * 500) + 800);
+        }
+    });
+}
 
-// ScrollReveal animations
-ScrollReveal().reveal('.section-title', {
-    delay: 200,
-    distance: '50px',
-    origin: 'bottom',
-    opacity: 0,
-    easing: 'ease-in-out'
+// Enhanced project card animations with hover effects
+function initProjectAnimations() {
+    const projectCards = document.querySelectorAll('.project-card');
+    
+    projectCards.forEach((card, index) => {
+        // Staggered animation delay
+        card.style.animationDelay = `${index * 0.1}s`;
+        
+        // Add hover tilt effect
+        card.addEventListener('mouseenter', function() {
+            this.style.transform = 'perspective(1000px) rotateY(5deg) rotateX(5deg) translateZ(10px)';
+            this.style.transition = 'transform 0.3s ease';
+        });
+        
+        card.addEventListener('mouseleave', function() {
+            this.style.transform = 'perspective(1000px) rotateY(0deg) rotateX(0deg) translateZ(0px)';
+        });
+    });
+}
+
+// Animated skill progress bars
+function animateSkillBars() {
+    const skillItems = document.querySelectorAll('.skill-item');
+    
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('animate-skill');
+                
+                // Add floating animation
+                setTimeout(() => {
+                    entry.target.style.animation = 'float 3s ease-in-out infinite';
+                }, 500);
+            }
+        });
+    }, { threshold: 0.5 });
+    
+    skillItems.forEach(skill => observer.observe(skill));
+}
+
+// Parallax scrolling effect for hero section
+function initParallaxEffect() {
+    const hero = document.querySelector('.hero');
+    const heroContent = document.querySelector('.hero-content');
+    
+    window.addEventListener('scroll', () => {
+        const scrolled = window.pageYOffset;
+        const parallax = scrolled * 0.5;
+        
+        if (hero && heroContent) {
+            heroContent.style.transform = `translateY(${parallax}px)`;
+        }
+    });
+}
+
+// Loading animation for GitHub data
+function showLoadingAnimation(container) {
+    container.innerHTML = `
+        <div class="loading-animation">
+            <div class="loading-dots">
+                <div class="loading-dot"></div>
+                <div class="loading-dot"></div>
+                <div class="loading-dot"></div>
+            </div>
+            <p>Loading GitHub data...</p>
+        </div>
+    `;
+}
+
+// Initialize all animations when DOM is loaded
+document.addEventListener('DOMContentLoaded', function() {
+    // Initialize typing animation after a delay
+    setTimeout(initTypingAnimation, 1000);
+    
+    // Initialize project animations
+    setTimeout(initProjectAnimations, 500);
+    
+    // Initialize skill animations
+    setTimeout(animateSkillBars, 800);
+    
+    // Initialize parallax effect
+    initParallaxEffect();
+    
+    // Initialize performance optimizations
+    initPerformanceOptimizations();
+    
+    // Initialize scroll-based animations
+    initScrollAnimations();
 });
 
-ScrollReveal().reveal('.project-card', {
-    delay: 200,
-    distance: '50px',
-    origin: 'bottom',
-    opacity: 0,
-    easing: 'ease-in-out',
-    rotate: {
-        x: 20,
-        z: -10
-    },
-    interval: 200
-});
+// Performance optimization functions
+function initPerformanceOptimizations() {
+    // Debounce scroll events for better performance
+    let scrollTimer = null;
+    const optimizedScroll = () => {
+        if (scrollTimer !== null) {
+            clearTimeout(scrollTimer);
+        }
+        scrollTimer = setTimeout(() => {
+            handleScrollEffects();
+        }, 16); // ~60fps
+    };
+    
+    window.addEventListener('scroll', optimizedScroll, { passive: true });
+    
+    // Intersection Observer for lazy loading and animations
+    if ('IntersectionObserver' in window) {
+        initIntersectionObserver();
+    }
+    
+    // Preload critical resources
+    preloadCriticalResources();
+}
 
-ScrollReveal().reveal('.skill-item', {
-    delay: 100,
-    distance: '50px',
-    origin: 'bottom',
-    opacity: 0,
-    easing: 'ease-in-out',
-    interval: 50
-});
+function handleScrollEffects() {
+    const scrolled = window.pageYOffset;
+    
+    // Update navigation background opacity based on scroll
+    const nav = document.querySelector('nav');
+    if (nav) {
+        const opacity = Math.min(1, scrolled / 100);
+        nav.style.background = `rgba(255, 255, 255, ${0.95 + (opacity * 0.05)})`;
+    }
+    
+    // Parallax effects for performance-optimized elements
+    const parallaxElements = document.querySelectorAll('.parallax');
+    parallaxElements.forEach(element => {
+        if (isElementInViewport(element)) {
+            const speed = element.dataset.speed || 0.5;
+            const yPos = -(scrolled * speed);
+            element.style.transform = `translate3d(0, ${yPos}px, 0)`;
+        }
+    });
+}
 
-ScrollReveal().reveal('.education-card', {
-    delay: 200,
-    distance: '50px',
-    origin: 'bottom',
-    opacity: 0,
-    easing: 'ease-in-out',
-    interval: 200
-});
+function initIntersectionObserver() {
+    // Animate elements when they come into view
+    const animatedElements = document.querySelectorAll('.animate-on-scroll, .project-card, .skill-item');
+    
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('animate-in');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    });
+    
+    animatedElements.forEach(element => {
+        observer.observe(element);
+    });
+}
 
-ScrollReveal().reveal('.contact-item', {
-    delay: 100,
-    distance: '50px',
-    origin: 'bottom',
-    opacity: 0,
-    easing: 'ease-in-out',
-    interval: 200
-});
+function preloadCriticalResources() {
+    // Preload GitHub profile images and icons
+    const criticalImages = [
+        'assets/icons/javascript.svg',
+        'assets/icons/python.svg',
+        'assets/icons/react.svg'
+    ];
+    
+    criticalImages.forEach(src => {
+        const link = document.createElement('link');
+        link.rel = 'preload';
+        link.as = 'image';
+        link.href = src;
+        document.head.appendChild(link);
+    });
+}
+
+function isElementInViewport(element) {
+    const rect = element.getBoundingClientRect();
+    return (
+        rect.top >= 0 &&
+        rect.left >= 0 &&
+        rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+        rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+    );
+}
+
+// Add custom CSS animations
+const customStyles = document.createElement('style');
+customStyles.textContent = `
+    @keyframes float {
+        0%, 100% { transform: translateY(0px); }
+        50% { transform: translateY(-10px); }
+    }
+    
+    @keyframes pulse {
+        0%, 100% { opacity: 1; }
+        50% { opacity: 0.7; }
+    }
+    
+    .loading-animation {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 40px;
+        color: #666;
+    }
+    
+    .loading-dots {
+        display: flex;
+        gap: 8px;
+        margin-bottom: 16px;
+    }
+    
+    .loading-dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: #007bff;
+        animation: pulse 1.5s ease-in-out infinite;
+    }
+    
+    .loading-dot:nth-child(2) { animation-delay: 0.3s; }
+    .loading-dot:nth-child(3) { animation-delay: 0.6s; }
+    
+    .animate-skill {
+        animation: skillReveal 0.8s ease-out forwards;
+    }
+    
+    @keyframes skillReveal {
+        from {
+            opacity: 0;
+            transform: translateY(30px) scale(0.9);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+        }
+    }
+    
+    .typing-complete {
+        border-right: 2px solid transparent;
+        animation: blink 1s infinite;
+    }
+    
+    @keyframes blink {
+        0%, 50% { border-color: currentColor; }
+        51%, 100% { border-color: transparent; }
+    }
+    
+    .project-card {
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        will-change: transform;
+    }
+    
+    .hero-content {
+        will-change: transform;
+    }
+`;
+document.head.appendChild(customStyles);
