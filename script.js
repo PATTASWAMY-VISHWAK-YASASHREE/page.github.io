@@ -518,30 +518,25 @@ document.addEventListener('DOMContentLoaded', function() {
     loadGitHubDataOnScroll();
 });
 
-// Professional minimal background animation
-function initMinimalBackgroundAnimation() {
-    const hero = document.querySelector('.hero');
-    if (!hero) return;
+// Smooth content transitions for sections
+function initSmoothTransitions() {
+    const sections = document.querySelectorAll('.section');
     
-    // Create subtle floating elements for professional look
-    for (let i = 0; i < 6; i++) {
-        const element = document.createElement('div');
-        element.className = 'floating-minimal';
-        element.style.cssText = `
-            position: absolute;
-            width: ${Math.random() * 60 + 20}px;
-            height: ${Math.random() * 60 + 20}px;
-            border-radius: 50%;
-            background: linear-gradient(45deg, rgba(58, 134, 255, 0.1), rgba(168, 85, 247, 0.1));
-            left: ${Math.random() * 100}%;
-            top: ${Math.random() * 100}%;
-            animation: floatMinimal ${Math.random() * 10 + 15}s ease-in-out infinite;
-            animation-delay: ${Math.random() * 5}s;
-            pointer-events: none;
-            z-index: 1;
-        `;
-        hero.appendChild(element);
-    }
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.opacity = '1';
+                entry.target.style.transform = 'translateY(0)';
+            }
+        });
+    }, { threshold: 0.1 });
+    
+    sections.forEach(section => {
+        section.style.opacity = '0';
+        section.style.transform = 'translateY(20px)';
+        section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+        observer.observe(section);
+    });
 }
 
 // Enhanced project card animations with hover effects
@@ -615,8 +610,8 @@ function showLoadingAnimation(container) {
 
 // Initialize all animations when DOM is loaded
 document.addEventListener('DOMContentLoaded', function() {
-    // Initialize minimal background animation
-    setTimeout(initMinimalBackgroundAnimation, 100);
+    // Initialize smooth content transitions
+    setTimeout(initSmoothTransitions, 100);
     
     // Initialize project animations
     setTimeout(initProjectAnimations, 300);
@@ -632,9 +627,6 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Initialize scroll-based animations
     initScrollAnimations();
-    
-    // Initialize floating background elements
-    initFloatingElements();
 });
 
 // Add floating elements to hero background

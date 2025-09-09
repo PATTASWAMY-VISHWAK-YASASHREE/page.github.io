@@ -6,17 +6,17 @@
 }
 
 :root {
-    /* Color Variables */
-    --primary-color: #007bff;
-    --primary-dark: #0056b3;
-    --secondary-color: #6c757d;
-    --accent-color: #17a2b8;
-    --text-primary: #1a1a1a;
-    --text-secondary: #666;
-    --text-light: #999;
+    /* Black & White Color Variables */
+    --primary-color: #000000;
+    --primary-dark: #000000;
+    --secondary-color: #666666;
+    --accent-color: #000000;
+    --text-primary: #000000;
+    --text-secondary: #666666;
+    --text-light: #999999;
     --bg-primary: #ffffff;
-    --bg-secondary: #f8f9fa;
-    --bg-dark: #212529;
+    --bg-secondary: #f8f8f8;
+    --bg-dark: #000000;
     --border-color: rgba(0, 0, 0, 0.1);
     --shadow-light: 0 2px 20px rgba(0, 0, 0, 0.1);
     --shadow-medium: 0 8px 30px rgba(0, 0, 0, 0.15);
@@ -46,6 +46,18 @@ body {
     color: var(--text-primary);
     background-color: var(--bg-primary);
     overflow-x: hidden;
+    position: relative;
+}
+
+/* Global Fixed Particles Background */
+#particles-js {
+    position: fixed !important;
+    top: 0;
+    left: 0;
+    width: 100vw !important;
+    height: 100vh !important;
+    z-index: -1 !important;
+    background-color: #ffffff;
 }
 
 .container {
@@ -56,8 +68,11 @@ body {
 
 .section {
     padding: var(--spacing-xl) 0;
-    background-color: var(--bg-primary);
+    background-color: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(10px);
     position: relative;
+    z-index: 1;
+    transition: all 0.3s ease;
 }
 
 .section-title {
@@ -195,64 +210,16 @@ body {
     transform: rotate(-45deg) translate(7px, -6px);
 }
 
-#particles-js {
-  position: fixed;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  z-index: -1;
-}
-
-/* Professional Minimal Hero Section */
+/* Black & White Hero Section */
 .hero {
     position: relative;
     min-height: 100vh;
     display: flex;
     align-items: center;
-    background: linear-gradient(135deg, 
-        rgba(255, 255, 255, 0.98) 0%, 
-        rgba(248, 249, 252, 0.98) 100%);
+    background: transparent;
     color: var(--text-primary);
     text-align: center;
-    overflow: hidden;
-}
-
-.hero::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: 
-        radial-gradient(circle at 85% 15%, rgba(58, 134, 255, 0.08) 0%, transparent 50%),
-        radial-gradient(circle at 15% 85%, rgba(168, 85, 247, 0.06) 0%, transparent 50%);
-    animation: minimalPulse 12s ease-in-out infinite;
-}
-
-.hero::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="dots" width="20" height="20" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r="1" fill="%23e0e7ff" opacity="0.4"/></pattern></defs><rect width="100" height="100" fill="url(%23dots)"/></svg>');
-    opacity: 0.3;
-}
-
-@keyframes minimalPulse {
-    0%, 100% { 
-        background: 
-            radial-gradient(circle at 85% 15%, rgba(58, 134, 255, 0.08) 0%, transparent 50%),
-            radial-gradient(circle at 15% 85%, rgba(168, 85, 247, 0.06) 0%, transparent 50%);
-    }
-    50% { 
-        background: 
-            radial-gradient(circle at 75% 25%, rgba(58, 134, 255, 0.12) 0%, transparent 60%),
-            radial-gradient(circle at 25% 75%, rgba(168, 85, 247, 0.10) 0%, transparent 60%);
-    }
+    z-index: 1;
 }
 
 @keyframes subtleFloat {
@@ -311,23 +278,23 @@ body {
 
 .hero-name {
     display: block;
-    background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+    background: linear-gradient(135deg, #000000, #666666);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    animation: gradientShift 4s ease-in-out infinite;
+    animation: blackWhiteShift 4s ease-in-out infinite;
     position: relative;
     margin-bottom: 0.3rem;
 }
 
-@keyframes gradientShift {
+@keyframes blackWhiteShift {
     0%, 100% { 
-        background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+        background: linear-gradient(135deg, #000000, #666666);
         -webkit-background-clip: text;
         background-clip: text;
     }
     50% { 
-        background: linear-gradient(135deg, var(--accent-color), var(--primary-color));
+        background: linear-gradient(135deg, #666666, #000000);
         -webkit-background-clip: text;
         background-clip: text;
     }
@@ -417,27 +384,27 @@ body {
 }
 
 .btn-primary {
-    background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
-    color: white;
+    background: #000000;
+    color: #ffffff;
     box-shadow: var(--shadow-medium);
 }
 
 .btn-primary:hover {
     transform: translateY(-3px);
     box-shadow: var(--shadow-heavy);
-    background: linear-gradient(135deg, var(--primary-dark), var(--primary-color));
+    background: #333333;
 }
 
 .btn-secondary {
     background: rgba(255, 255, 255, 0.9);
-    color: var(--text-primary);
-    border: 2px solid var(--primary-color);
+    color: #000000;
+    border: 2px solid #000000;
     backdrop-filter: blur(10px);
 }
 
 .btn-secondary:hover {
-    background: var(--primary-color);
-    color: white;
+    background: #000000;
+    color: #ffffff;
     transform: translateY(-3px);
     box-shadow: var(--shadow-medium);
 }
