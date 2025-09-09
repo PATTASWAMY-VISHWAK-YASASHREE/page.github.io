@@ -518,61 +518,39 @@ document.addEventListener('DOMContentLoaded', function() {
     loadGitHubDataOnScroll();
 });
 
-// Enhanced typing animation for hero text with multiple effects
+// Fast and immediate typing animation for hero text
 function initTypingAnimation() {
     const typingElements = document.querySelectorAll('.typing-text');
     
     typingElements.forEach((element, index) => {
         const text = element.textContent;
         element.textContent = '';
-        element.style.opacity = '0';
+        element.style.opacity = '1';
         
-        // Fade in the element first
-        setTimeout(() => {
-            element.style.transition = 'opacity 0.5s ease';
-            element.style.opacity = '1';
-        }, index * 500);
+        // Always use custom typing animation for reliability
+        let i = 0;
+        let cursor = document.createElement('span');
+        cursor.textContent = '|';
+        cursor.className = 'typing-cursor';
+        cursor.style.animation = 'cursorBlink 0.8s infinite';
+        element.appendChild(cursor);
         
-        // Use Typed.js if available, otherwise fallback to custom function
-        if (typeof Typed !== 'undefined') {
-            setTimeout(() => {
-                new Typed(element, {
-                    strings: [text],
-                    typeSpeed: 75,
-                    backSpeed: 30,
-                    showCursor: true,
-                    cursorChar: '|',
-                    autoInsertCss: true,
-                    onComplete: function() {
-                        element.classList.add('typing-complete');
-                        // Add rainbow animation after typing completes
-                        setTimeout(() => {
-                            element.classList.add('rainbow-text');
-                        }, 1000);
-                    }
-                });
-            }, (index * 500) + 800);
-        } else {
-            // Enhanced fallback typing animation
-            setTimeout(() => {
-                let i = 0;
-                function type() {
-                    if (i < text.length) {
-                        element.textContent += text.charAt(i);
-                        i++;
-                        // Variable speed for more natural typing
-                        const delay = Math.random() * 100 + 50;
-                        setTimeout(type, delay);
-                    } else {
-                        element.classList.add('typing-complete');
-                        setTimeout(() => {
-                            element.classList.add('rainbow-text');
-                        }, 1000);
-                    }
-                }
-                type();
-            }, (index * 500) + 800);
+        function type() {
+            if (i < text.length) {
+                element.insertBefore(document.createTextNode(text.charAt(i)), cursor);
+                i++;
+                setTimeout(type, 40); // Fast typing speed
+            } else {
+                element.classList.add('typing-complete');
+                // Hide cursor after 2 seconds
+                setTimeout(() => {
+                    cursor.style.display = 'none';
+                }, 2000);
+            }
         }
+        
+        // Start typing with minimal delay
+        setTimeout(type, 200 + (index * 100));
     });
 }
 
@@ -647,14 +625,14 @@ function showLoadingAnimation(container) {
 
 // Initialize all animations when DOM is loaded
 document.addEventListener('DOMContentLoaded', function() {
-    // Initialize typing animation after a delay
-    setTimeout(initTypingAnimation, 1000);
+    // Initialize typing animation immediately
+    setTimeout(initTypingAnimation, 100);
     
     // Initialize project animations
-    setTimeout(initProjectAnimations, 500);
+    setTimeout(initProjectAnimations, 300);
     
     // Initialize skill animations
-    setTimeout(animateSkillBars, 800);
+    setTimeout(animateSkillBars, 500);
     
     // Initialize parallax effect
     initParallaxEffect();
@@ -664,7 +642,36 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Initialize scroll-based animations
     initScrollAnimations();
+    
+    // Initialize floating background elements
+    initFloatingElements();
 });
+
+// Add floating elements to hero background
+function initFloatingElements() {
+    const hero = document.querySelector('.hero');
+    if (!hero) return;
+    
+    // Create floating elements
+    for (let i = 0; i < 15; i++) {
+        const floatingElement = document.createElement('div');
+        floatingElement.className = 'floating-element';
+        floatingElement.style.cssText = `
+            position: absolute;
+            width: ${Math.random() * 20 + 10}px;
+            height: ${Math.random() * 20 + 10}px;
+            background: radial-gradient(circle, rgba(120, 119, 198, 0.2) 0%, transparent 70%);
+            border-radius: 50%;
+            left: ${Math.random() * 100}%;
+            top: ${Math.random() * 100}%;
+            animation: float ${5 + Math.random() * 10}s ease-in-out infinite;
+            animation-delay: ${Math.random() * 5}s;
+            pointer-events: none;
+            z-index: 1;
+        `;
+        hero.appendChild(floatingElement);
+    }
+}
 
 // Performance optimization functions
 function initPerformanceOptimizations() {
@@ -746,6 +753,32 @@ function preloadCriticalResources() {
         link.as = 'image';
         link.href = src;
         document.head.appendChild(link);
+    });
+}
+
+// Initialize scroll-based animations
+function initScrollAnimations() {
+    // Call the intersection observer for scroll animations
+    initIntersectionObserver();
+    
+    // Add smooth scroll behavior to all internal links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                target.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        });
+    });
+    
+    // Initialize scroll-triggered animations
+    const scrollElements = document.querySelectorAll('.project-card, .skill-item, .education-card');
+    scrollElements.forEach(element => {
+        element.classList.add('animate-on-scroll');
     });
 }
 
