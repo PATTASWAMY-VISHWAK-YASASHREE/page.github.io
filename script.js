@@ -518,40 +518,30 @@ document.addEventListener('DOMContentLoaded', function() {
     loadGitHubDataOnScroll();
 });
 
-// Fast and immediate typing animation for hero text
-function initTypingAnimation() {
-    const typingElements = document.querySelectorAll('.typing-text');
+// Professional minimal background animation
+function initMinimalBackgroundAnimation() {
+    const hero = document.querySelector('.hero');
+    if (!hero) return;
     
-    typingElements.forEach((element, index) => {
-        const text = element.textContent;
-        element.textContent = '';
-        element.style.opacity = '1';
-        
-        // Always use custom typing animation for reliability
-        let i = 0;
-        let cursor = document.createElement('span');
-        cursor.textContent = '|';
-        cursor.className = 'typing-cursor';
-        cursor.style.animation = 'cursorBlink 0.8s infinite';
-        element.appendChild(cursor);
-        
-        function type() {
-            if (i < text.length) {
-                element.insertBefore(document.createTextNode(text.charAt(i)), cursor);
-                i++;
-                setTimeout(type, 40); // Fast typing speed
-            } else {
-                element.classList.add('typing-complete');
-                // Hide cursor after 2 seconds
-                setTimeout(() => {
-                    cursor.style.display = 'none';
-                }, 2000);
-            }
-        }
-        
-        // Start typing with minimal delay
-        setTimeout(type, 200 + (index * 100));
-    });
+    // Create subtle floating elements for professional look
+    for (let i = 0; i < 6; i++) {
+        const element = document.createElement('div');
+        element.className = 'floating-minimal';
+        element.style.cssText = `
+            position: absolute;
+            width: ${Math.random() * 60 + 20}px;
+            height: ${Math.random() * 60 + 20}px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, rgba(58, 134, 255, 0.1), rgba(168, 85, 247, 0.1));
+            left: ${Math.random() * 100}%;
+            top: ${Math.random() * 100}%;
+            animation: floatMinimal ${Math.random() * 10 + 15}s ease-in-out infinite;
+            animation-delay: ${Math.random() * 5}s;
+            pointer-events: none;
+            z-index: 1;
+        `;
+        hero.appendChild(element);
+    }
 }
 
 // Enhanced project card animations with hover effects
@@ -625,8 +615,8 @@ function showLoadingAnimation(container) {
 
 // Initialize all animations when DOM is loaded
 document.addEventListener('DOMContentLoaded', function() {
-    // Initialize typing animation immediately
-    setTimeout(initTypingAnimation, 100);
+    // Initialize minimal background animation
+    setTimeout(initMinimalBackgroundAnimation, 100);
     
     // Initialize project animations
     setTimeout(initProjectAnimations, 300);
